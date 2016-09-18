@@ -39,7 +39,6 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 </style>
 
 <script>
-openTab(event, 'DiepIsland');
 
 function openTab(evt, cityName) {
     // Declare all variables
@@ -61,6 +60,8 @@ function openTab(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+openTab(event, 'DiepIsland')
 </script>
 
 <ul class="tab">
