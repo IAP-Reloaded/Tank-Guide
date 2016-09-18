@@ -102,7 +102,16 @@ function openTab(evt, cityName) {
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$(".fancybox").fancybox();
+		$(".fancybox")
+    .attr('rel', 'gallery')
+    .fancybox({
+        openEffect  : 'none',
+        closeEffect : 'none',
+        nextEffect  : 'none',
+        prevEffect  : 'none',
+        padding     : 0,
+        margin      : [20, 60, 20, 60] // Increase left/right margin
+    });
 	});
 </script>
 
@@ -116,12 +125,12 @@ function openTab(evt, cityName) {
 <div id="DiepIsland" class="tabcontent">
     <p>Diep Island is the story about a tank who found himself on an island.</p>
   
-    <a class="fancybox" rel="group" href="https://iap-reloaded.github.io/Tank-Guide/images/Diep%20Island.png"><img width=50 src="https://iap-reloaded.github.io/Tank-Guide/images/Diep%20Island.png"></a>
-    <a class="fancybox" rel="group" href="https://iap-reloaded.github.io/Tank-Guide/images/Alpha%20Always%20Wins.png"><img width=50 src="https://iap-reloaded.github.io/Tank-Guide/images/Alpha%20Always%20Wins.png"></a>
+    <a title="Diep Island" class="fancybox" rel="group" href="https://iap-reloaded.github.io/Tank-Guide/images/Diep%20Island.png"><img width=150 src="https://iap-reloaded.github.io/Tank-Guide/images/Diep%20Island.png"></a>
+    <a title="Alpha Always Wins" class="fancybox" rel="group" href="https://iap-reloaded.github.io/Tank-Guide/images/Alpha%20Always%20Wins.png"><img width=150 src="https://iap-reloaded.github.io/Tank-Guide/images/Alpha%20Always%20Wins.png"></a>
 </div>
 
 <div id="Misc" class="tabcontent">
     <p>All comics not in a series will be put here.</p>
     
-    <img src="https://iap-reloaded.github.io/Tank-Guide/images/[AC]%20Police.png">
+    <a title="[AC] Police" class="fancybox" rel="group" href="https://iap-reloaded.github.io/Tank-Guide/images/[AC]%20Police.png"><img width=150 src="https://iap-reloaded.github.io/Tank-Guide/images/[AC]%20Police.png"></a>
 </div>
