@@ -46,6 +46,19 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 
   ga('create', 'UA-84289387-1', 'auto');
   ga('send', 'pageview');
+  
+/**
+* Function that tracks a click on an outbound link in Analytics.
+* This function takes a valid URL string as an argument, and uses that URL string
+* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+* using 'navigator.sendBeacon' in browser that support it.
+*/
+var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+}
 
 function openTab(evt, cityName) {
     // Declare all variables
@@ -67,11 +80,9 @@ function openTab(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-
-openTab(event, 'DiepIsland')
 </script>
 
-<a href="https://www.reddit.com/r/Diepio/comments/53cfwd/diepio_comic_archive_view_comics_in_one_place/?ref=share&ref_source=embed" onClick="_gaq.push(['_trackEvent', 'External Link', 'Reddit Link', 'Comic Archive Reddit Post']);">Diep.io Comic Archive - View comics in one place</a> on Reddit
+<a href="https://www.reddit.com/r/Diepio/comments/53cfwd/diepio_comic_archive_view_comics_in_one_place/?ref=share&ref_source=embed" onclick="trackOutboundLink('https://www.reddit.com/r/Diepio/comments/53cfwd/diepio_comic_archive_view_comics_in_one_place/?ref=share&ref_source=embed'); return false;">Diep.io Comic Archive - View comics in one place</a> on Reddit
 
 <ul class="tab">
   <li><a href="#" class="tablinks" onclick="openTab(event, 'DiepIsland')">Diep Island</a></li>
