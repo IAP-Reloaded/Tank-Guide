@@ -1,93 +1,38 @@
-<head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
 <!-- Add mousewheel plugin (this is optional) -->
-<script type="text/javascript" src="/Tank-Guide/fullfancy/lib/jquery.mousewheel-3.0.6.pack.js"></script>
-
+<script src="/Tank-Guide/fullfancy/lib/jquery.mousewheel-3.0.6.pack.js" type="text/javascript"></script>
 <!-- Add fancyBox -->
-<link rel="stylesheet" href="/Tank-Guide/fullfancy/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
-<script type="text/javascript" src="/Tank-Guide/fullfancy/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
+<p></p>
+<script src="/Tank-Guide/fullfancy/source/jquery.fancybox.pack.js?v=2.1.5" type="text/javascript"></script>
 <!-- Optionally add helpers - button, thumbnail and/or media -->
-<link rel="stylesheet" href="/Tank-Guide/fullfancy/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
-<script type="text/javascript" src="/Tank-Guide/fullfancy/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
-<script type="text/javascript" src="/Tank-Guide/fullfancy/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
-
-<link rel="stylesheet" href="/Tank-Guide/fullfancy/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
-<script type="text/javascript" src="/Tank-Guide/fullfancy/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-</head>
-
-<style>
-.fancybox-nav span {
- visibility: visible;
-}
-
-/* Style the list */
-ul.tab {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-}
-
-/* Float the list items side by side */
-ul.tab li {float: left;}
-
-/* Style the links inside the list items */
-ul.tab li a {
-    display: inline-block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 17px;
-}
-
-/* Change background color of links on hover */
-ul.tab li a:hover {background-color: #ddd;}
-
-/* Create an active/current tablink class */
-ul.tab li a:focus, .active {background-color: #ccc;}
-
-/* Style the tab content */
-.tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
-}
-
-* {
-font-family: arial;
-}
-</style>
-
-<script>
+<p></p>
+<script src="/Tank-Guide/fullfancy/source/helpers/jquery.fancybox-buttons.js?v=1.0.5" type="text/javascript"></script>
+<script src="/Tank-Guide/fullfancy/source/helpers/jquery.fancybox-media.js?v=1.0.6" type="text/javascript"></script>
+<p></p>
+<script src="/Tank-Guide/fullfancy/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7" type="text/javascript"></script>
+<script>// <![CDATA[
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
+  
   ga('create', 'UA-84289387-1', 'auto');
   ga('send', 'pageview');
   
-/**
-* Function that tracks a click on an outbound link in Analytics.
-* This function takes a valid URL string as an argument, and uses that URL string
-* as the event label. Setting the transport method to 'beacon' lets the hit be sent
-* using 'navigator.sendBeacon' in browser that support it.
-*/
-var trackOutboundLink = function(url) {
+  /**
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
    ga('send', 'event', 'outbound', 'click', url, {
      'transport': 'beacon',
      'hitCallback': function(){document.location = url;}
    });
-}
-	$(document).ready(function() {
-		$(".fancybox")
+  }
+  $(document).ready(function() {
+  $(".fancybox")
     .fancybox({
         openEffect  : 'none',
         closeEffect : 'none',
@@ -97,122 +42,30 @@ var trackOutboundLink = function(url) {
         margin      : [20, 60, 20, 60],
         loop        : false
     });
-	});
+  });
+  // ]]>
 </script>
-
-<a href="https://www.reddit.com/r/Diepio/comments/53cfwd/diepio_comic_archive_view_comics_in_one_place/?ref=share&ref_source=embed" onclick="trackOutboundLink('https://www.reddit.com/r/Diepio/comments/53cfwd/diepio_comic_archive_view_comics_in_one_place/?ref=share&ref_source=embed'); return false;">Diep.io Comic Archive - View comics in one place</a> on Reddit
-
-<input type="checkbox" name="zip" id="checkbox1" class="all"  value="all" /> Diep Island <br>
-<input type="checkbox" name="zip" id="checkbox2" class="all"  value="all" /> Two <br>
-
-<script>
-	updateAll()
-
-function removeList(array, search_term) {
-for (var i=array.length-1; i>=0; i--) {
-    if (array[i] === search_term) {
-        array.splice(i, 1);
-        // break;       //<-- Uncomment  if only the first term has to be removed
-    }
-}
-}
-
-var array = ["featured"];
-
-function updateAll() {
-//Hide all the div
-$('div').hide();
-$.each(array, function(key, value) {
-  $('div').filter(function(){
-    //Get the div which have particular class
-    if($(this).hasClass(value))
-    {
-      return $(this);
-    }
-  }).show();
-});
-}
-
- $('#checkbox1').change(function() {
- if($(this).is(':checked')){
-            array.push("diepisland")
-                updateAll();
-       }
-        else
-            {
-                removeList(array, "diepisland");
-                updateAll();
-}    
-    });
-    
-     $('#checkbox2').change(function() {
- if($(this).is(':checked')){
-            array.push("two")
-                updateAll();
-       }
-        else
-            {
-                removeList(array, "two");
-                updateAll();
-}    
-    });
-</script>
-
-<div class="one">
-1
-</div>
-<div class="two">
-2
-</div>
-<div class="one two">
-3
-</div>
-
-    <div class="diepisland"><a title="Diep Island" class="fancybox" rel="group" href="https://iap-reloaded.github.io/Tank-Guide/images/Diep%20Island.png"><img width=125 height=125 src="https://iap-reloaded.github.io/Tank-Guide/images/Diep%20Island.png"></a></div>
-    <div class="diepisland"><a title="Alpha Always Wins" class="fancybox" rel="group" href="https://iap-reloaded.github.io/Tank-Guide/images/Alpha%20Always%20Wins.png"><img width=125 height=125 src="https://iap-reloaded.github.io/Tank-Guide/images/Alpha%20Always%20Wins.png"></a></div>
-    <div class="diepisland"><a title="Edge of Diep Island" class="fancybox" rel="group" href="https://iap-reloaded.github.io/Tank-Guide/images/Edge%20of%20Diep%20Island.png"><img width=125 height=125 src="https://iap-reloaded.github.io/Tank-Guide/images/Edge%20of%20Diep%20Island.png"></a></div>
-
+<p><input id="checkbox1" class="all" name="zip" type="checkbox" value="all" /> Diep Island <br /> <input id="checkbox2" class="all" name="zip" type="checkbox" value="all" /> Two&nbsp;</p>
+<div class="diepisland"><a class="fancybox" title="Diep Island" href="https://iap-reloaded.github.io/Tank-Guide/images/Diep%20Island.png" rel="group"><img src="https://iap-reloaded.github.io/Tank-Guide/images/Diep%20Island.png" alt="" width="125" height="125" /></a></div>
+<div class="diepisland"><a class="fancybox" title="Alpha Always Wins" href="https://iap-reloaded.github.io/Tank-Guide/images/Alpha%20Always%20Wins.png" rel="group"><img src="https://iap-reloaded.github.io/Tank-Guide/images/Alpha%20Always%20Wins.png" alt="" width="125" height="125" /></a></div>
+<div class="diepisland"><a class="fancybox" title="Edge of Diep Island" href="https://iap-reloaded.github.io/Tank-Guide/images/Edge%20of%20Diep%20Island.png" rel="group"><img src="https://iap-reloaded.github.io/Tank-Guide/images/Edge%20of%20Diep%20Island.png" alt="" width="125" height="125" /></a></div>
 <div id="Interviews" class="tabcontent">
-    <p>The Interview with Diepkind series is where the protagonist meets other tanks and asks them questions. It was made by <a href="https://www.reddit.com/user/Disisaperson64">Disisaperson64</a>.</a></a></p>
-  
-    <a title="Part 1" class="fancybox" rel="interview" href="https://i.redd.it/cwg7zyqr2amx.png"><img width=125 height=125 src="https://i.redd.it/cwg7zyqr2amx.png"></a>
-    <a title="Part 2" class="fancybox" rel="interview" href="https://i.redd.it/pyy3thkbsamx.png"><img width=125 height=125 src="https://i.redd.it/pyy3thkbsamx.png"></a>
-    <a title="Part 3" class="fancybox" rel="interview" href="https://i.redd.it/h2tzghj5jbmx.png"><img width=125 height=125 src="https://i.redd.it/h2tzghj5jbmx.png"></a>
+  <p>The Interview with Diepkind series is where the protagonist meets other tanks and asks them questions. It was made by <a href="https://www.reddit.com/user/Disisaperson64">Disisaperson64</a>.</p>
+  <a class="fancybox" title="Part 1" href="https://i.redd.it/cwg7zyqr2amx.png" rel="interview"><img src="https://i.redd.it/cwg7zyqr2amx.png" alt="" width="125" height="125" /></a> <a class="fancybox" title="Part 2" href="https://i.redd.it/pyy3thkbsamx.png" rel="interview"><img src="https://i.redd.it/pyy3thkbsamx.png" alt="" width="125" height="125" /></a> <a class="fancybox" title="Part 3" href="https://i.redd.it/h2tzghj5jbmx.png" rel="interview"><img src="https://i.redd.it/h2tzghj5jbmx.png" alt="" width="125" height="125" /></a>
 </div>
-
 <div id="Motherships" class="tabcontent">
-    <p>What do the Motherships do when we're out fighting the other teams' tanks? This is what they do.</p>
-    
-    <a title="Parenting" class="fancybox" rel="mother" href="https://i.redd.it/hzmk5lb0ccmx.png"><img width=125 height=125 src="https://i.redd.it/hzmk5lb0ccmx.png"></a>
-    <a title="Custody" class="fancybox" rel="mother" href="https://i.redd.it/z4i97naypcmx.png"><img width=125 height=125 src="https://i.redd.it/z4i97naypcmx.png"></a>
-    <a title="RIP Mothership" class="fancybox" rel="mother" href="https://i.redd.it/se2rguq8rgmx.png"><img width=125 height=125 src="https://i.redd.it/se2rguq8rgmx.png"></a>
+  <p>What do the Motherships do when we're out fighting the other teams' tanks? This is what they do.</p>
+  <a class="fancybox" title="Parenting" href="https://i.redd.it/hzmk5lb0ccmx.png" rel="mother"><img src="https://i.redd.it/hzmk5lb0ccmx.png" alt="" width="125" height="125" /></a> <a class="fancybox" title="Custody" href="https://i.redd.it/z4i97naypcmx.png" rel="mother"><img src="https://i.redd.it/z4i97naypcmx.png" alt="" width="125" height="125" /></a> <a class="fancybox" title="RIP Mothership" href="https://i.redd.it/se2rguq8rgmx.png" rel="mother"><img src="https://i.redd.it/se2rguq8rgmx.png" alt="" width="125" height="125" /></a>
 </div>
-
 <div id="SunKnights" class="tabcontent">
-    <p>They are the Sun Knights.</p>
-    
-    <a title="Part 1" class="fancybox sun-knights" rel="sun" href="http://i.imgur.com/C3DXoi4.png"><img width=125 height=125 src="http://i.imgur.com/C3DXoi4.png"></a>
-    <a title="Part 2" class="fancybox sun-knights" rel="sun" href="https://i.redd.it/3xa4pl8fldmx.png"><img width=125 height=125 src="https://i.redd.it/3xa4pl8fldmx.png"></a>
+  <p>They are the Sun Knights.</p>
+  <a class="fancybox sun-knights" title="Part 1" href="http://i.imgur.com/C3DXoi4.png" rel="sun"><img src="http://i.imgur.com/C3DXoi4.png" alt="" width="125" height="125" /></a> <a class="fancybox sun-knights" title="Part 2" href="https://i.redd.it/3xa4pl8fldmx.png" rel="sun"><img src="https://i.redd.it/3xa4pl8fldmx.png" alt="" width="125" height="125" /></a>
 </div>
-
 <div id="Basic" class="tabcontent">
-    <p>Title says it all.</p>
-    
-    <a title="Part 0" class="fancybox basic-tanks" rel="basic" href="http://i.imgur.com/PW0a2b9.jpg"><img width=125 height=125 src="http://i.imgur.com/PW0a2b9.jpg"></a>
-    <a title="Part 1" class="fancybox basic-tanks" rel="basic" href="http://i.imgur.com/iUn4V7z.jpg"><img width=125 height=125 src="http://i.imgur.com/iUn4V7z.jpg"></a>
-    <a title="Part 2 Page 1" class="fancybox basic-tanks" rel="basic" href="http://i.imgur.com/NlXM54P.jpg"><img width=125 height=125 src="http://i.imgur.com/NlXM54P.jpg"></a>
-    <a title="Part 2 Page 2" class="fancybox basic-tanks" rel="basic" href="http://i.imgur.com/z729qjK.jpg"><img width=125 height=125 src="http://i.imgur.com/z729qjK.jpg"></a>
-    <a title="Part 2 Page 3" class="fancybox basic-tanks" rel="basic" href="http://i.imgur.com/MR49Ijb.png"><img width=125 height=125 src="http://i.imgur.com/MR49Ijb.png"></a>
-    <a title="Part 3 Page 1" class="fancybox basic-tanks" rel="basic" href="http://i.imgur.com/9p9E7VY.jpg"><img width=125 height=125 src="http://i.imgur.com/9p9E7VY.jpg"></a>
-    <a title="Part 3 Page 2" class="fancybox basic-tanks" rel="basic" href="http://i.imgur.com/2hMq3lm.jpg"><img width=125 height=125 src="http://i.imgur.com/2hMq3lm.jpg"></a>
-    <a title="Part 3 Page 3" class="fancybox basic-tanks" rel="basic" href="http://i.imgur.com/n86gxe0.jpg"><img width=125 height=125 src="http://i.imgur.com/n86gxe0.jpg"></a>
-    <a title="Part 3 Page 4" class="fancybox basic-tanks" rel="basic" href="http://i.imgur.com/31AYysY.png"><img width=125 height=125 src="http://i.imgur.com/31AYysY.png"></a>
+  <p>Title says it all.</p>
+  <a class="fancybox basic-tanks" title="Part 0" href="http://i.imgur.com/PW0a2b9.jpg" rel="basic"><img src="http://i.imgur.com/PW0a2b9.jpg" alt="" width="125" height="125" /></a> <a class="fancybox basic-tanks" title="Part 1" href="http://i.imgur.com/iUn4V7z.jpg" rel="basic"><img src="http://i.imgur.com/iUn4V7z.jpg" alt="" width="125" height="125" /></a> <a class="fancybox basic-tanks" title="Part 2 Page 1" href="http://i.imgur.com/NlXM54P.jpg" rel="basic"><img src="http://i.imgur.com/NlXM54P.jpg" alt="" width="125" height="125" /></a> <a class="fancybox basic-tanks" title="Part 2 Page 2" href="http://i.imgur.com/z729qjK.jpg" rel="basic"><img src="http://i.imgur.com/z729qjK.jpg" alt="" width="125" height="125" /></a> <a class="fancybox basic-tanks" title="Part 2 Page 3" href="http://i.imgur.com/MR49Ijb.png" rel="basic"><img src="http://i.imgur.com/MR49Ijb.png" alt="" width="125" height="125" /></a> <a class="fancybox basic-tanks" title="Part 3 Page 1" href="http://i.imgur.com/9p9E7VY.jpg" rel="basic"><img src="http://i.imgur.com/9p9E7VY.jpg" alt="" width="125" height="125" /></a> <a class="fancybox basic-tanks" title="Part 3 Page 2" href="http://i.imgur.com/2hMq3lm.jpg" rel="basic"><img src="http://i.imgur.com/2hMq3lm.jpg" alt="" width="125" height="125" /></a> <a class="fancybox basic-tanks" title="Part 3 Page 3" href="http://i.imgur.com/n86gxe0.jpg" rel="basic"><img src="http://i.imgur.com/n86gxe0.jpg" alt="" width="125" height="125" /></a> <a class="fancybox basic-tanks" title="Part 3 Page 4" href="http://i.imgur.com/31AYysY.png" rel="basic"><img src="http://i.imgur.com/31AYysY.png" alt="" width="125" height="125" /></a>
 </div>
-
 <div id="Misc" class="tabcontent">
-    <p>All comics not in a series will be put here. They are sorted in chronological order, with the first comic being the first in the directory.</p>
-    
-    <a title="[AC] Police" class="fancybox" rel="misc" href="https://iap-reloaded.github.io/Tank-Guide/images/[AC]%20Police.png"><img width=125 height=125 src="https://iap-reloaded.github.io/Tank-Guide/images/[AC]%20Police.png"></a>
-    <a title="The Sun Knight" class="fancybox" rel="misc" href="http://i.imgur.com/C3DXoi4.png"><img width=125 height=125 src="http://i.imgur.com/C3DXoi4.png"></a>
-    <a title="MS Paint Wars" class="fancybox" rel="misc" href="https://i.redd.it/1t4zmfw2qdmx.png"><img width=125 height=125 src="https://i.redd.it/1t4zmfw2qdmx.png"></a>
+  <p>All comics not in a series will be put here. They are sorted in chronological order, with the first comic being the first in the directory.</p>
+  <a class="fancybox" title="[AC] Police" href="https://iap-reloaded.github.io/Tank-Guide/images/[AC]%20Police.png" rel="misc"><img src="https://iap-reloaded.github.io/Tank-Guide/images/[AC]%20Police.png" alt="" width="125" height="125" /></a> <a class="fancybox" title="The Sun Knight" href="http://i.imgur.com/C3DXoi4.png" rel="misc"><img src="http://i.imgur.com/C3DXoi4.png" alt="" width="125" height="125" /></a> <a class="fancybox" title="MS Paint Wars" href="https://i.redd.it/1t4zmfw2qdmx.png" rel="misc"><img src="https://i.redd.it/1t4zmfw2qdmx.png" alt="" width="125" height="125" /></a>
 </div>
