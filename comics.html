@@ -103,8 +103,9 @@ var trackOutboundLink = function(url) {
 <a href="https://www.reddit.com/r/Diepio/comments/53cfwd/diepio_comic_archive_view_comics_in_one_place/?ref=share&ref_source=embed" onclick="trackOutboundLink('https://www.reddit.com/r/Diepio/comments/53cfwd/diepio_comic_archive_view_comics_in_one_place/?ref=share&ref_source=embed'); return false;">Diep.io Comic Archive - View comics in one place</a> on Reddit
 
 <p>
-  <input type="checkbox" name="zip" id="checkbox1" class="all"  value="all" /> Diep Island <br />
-  <input type="checkbox" name="zip" id="checkbox2" class="all"  value="all" /> Interviews with Diepkind&nbsp;
+  <input type="checkbox" id="checkbox1"/> Diep Island <br>
+  <input type="checkbox" id="checkbox2"/> Interviews with Diepkind <br>
+  <input type="checkbox" id="checkbox3"/> Mothershops <br>
 </p>
 
 <script>
@@ -158,6 +159,18 @@ $.each(array, function(key, value) {
                 updateAll();
 }    
     });
+    
+     $('#checkbox3').change(function() {
+ if($(this).is(':checked')){
+            array.push("mothership")
+                updateAll();
+       }
+        else
+            {
+                removeList(array, "mothership");
+                updateAll();
+}    
+    });
 </script>
 
 <div class="diepisland"><a class="fancybox" title="Diep Island" href="https://iap-reloaded.github.io/Tank-Guide/images/Diep%20Island.png" rel="group"><img src="https://iap-reloaded.github.io/Tank-Guide/images/Diep%20Island.png" alt="" width="125" height="125" /></a></div>
@@ -166,11 +179,10 @@ $.each(array, function(key, value) {
 <div class="interview"><a class="fancybox" title="Part 1" href="https://i.redd.it/cwg7zyqr2amx.png" rel="interview"><img src="https://i.redd.it/cwg7zyqr2amx.png" alt="" width="125" height="125" /></a></div>
 <div class="interview"><a class="fancybox" title="Part 2" href="https://i.redd.it/pyy3thkbsamx.png" rel="interview"><img src="https://i.redd.it/pyy3thkbsamx.png" alt="" width="125" height="125" /></a></div>
 <div class="interview"><a class="fancybox" title="Part 3" href="https://i.redd.it/h2tzghj5jbmx.png" rel="interview"><img src="https://i.redd.it/h2tzghj5jbmx.png" alt="" width="125" height="125" /></a></div>
+<div class="mothership"><a class="fancybox" title="Parenting" href="https://i.redd.it/hzmk5lb0ccmx.png" rel="mother"><img src="https://i.redd.it/hzmk5lb0ccmx.png" alt="" width="125" height="125" /></a></div>
+<div class="mothership"><a class="fancybox" title="Custody" href="https://i.redd.it/z4i97naypcmx.png" rel="mother"><img src="https://i.redd.it/z4i97naypcmx.png" alt="" width="125" height="125" /></a></div>
+<div class="mothership"><a class="fancybox" title="RIP Mothership" href="https://i.redd.it/se2rguq8rgmx.png" rel="mother"><img src="https://i.redd.it/se2rguq8rgmx.png" alt="" width="125" height="125" /></a></div>
 
-<div id="Motherships" class="tabcontent">
-  <p>What do the Motherships do when we're out fighting the other teams' tanks? This is what they do.</p>
-  <a class="fancybox" title="Parenting" href="https://i.redd.it/hzmk5lb0ccmx.png" rel="mother"><img src="https://i.redd.it/hzmk5lb0ccmx.png" alt="" width="125" height="125" /></a> <a class="fancybox" title="Custody" href="https://i.redd.it/z4i97naypcmx.png" rel="mother"><img src="https://i.redd.it/z4i97naypcmx.png" alt="" width="125" height="125" /></a> <a class="fancybox" title="RIP Mothership" href="https://i.redd.it/se2rguq8rgmx.png" rel="mother"><img src="https://i.redd.it/se2rguq8rgmx.png" alt="" width="125" height="125" /></a>
-</div>
 <div id="SunKnights" class="tabcontent">
   <p>They are the Sun Knights.</p>
   <a class="fancybox sun-knights" title="Part 1" href="http://i.imgur.com/C3DXoi4.png" rel="sun"><img src="http://i.imgur.com/C3DXoi4.png" alt="" width="125" height="125" /></a> <a class="fancybox sun-knights" title="Part 2" href="https://i.redd.it/3xa4pl8fldmx.png" rel="sun"><img src="https://i.redd.it/3xa4pl8fldmx.png" alt="" width="125" height="125" /></a>
