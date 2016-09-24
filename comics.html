@@ -86,30 +86,6 @@ var trackOutboundLink = function(url) {
      'hitCallback': function(){document.location = url;}
    });
 }
-
-function openTab(evt, cityName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the link that opened the tab
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-</script>
-
-<script type="text/javascript">
 	$(document).ready(function() {
 		$(".fancybox")
     .fancybox({
@@ -126,7 +102,7 @@ function openTab(evt, cityName) {
 
 <a href="https://www.reddit.com/r/Diepio/comments/53cfwd/diepio_comic_archive_view_comics_in_one_place/?ref=share&ref_source=embed" onclick="trackOutboundLink('https://www.reddit.com/r/Diepio/comments/53cfwd/diepio_comic_archive_view_comics_in_one_place/?ref=share&ref_source=embed'); return false;">Diep.io Comic Archive - View comics in one place</a> on Reddit
 
-<input type="checkbox" name="zip" id="checkbox1" class="all"  value="all" /> One <br>
+<input type="checkbox" name="zip" id="checkbox1" class="all"  value="all" /> Diep Island <br>
 <input type="checkbox" name="zip" id="checkbox2" class="all"  value="all" /> Two <br>
 
 <script>
@@ -159,12 +135,12 @@ $.each(array, function(key, value) {
 
  $('#checkbox1').change(function() {
  if($(this).is(':checked')){
-            array.push("one")
+            array.push("diepisland")
                 updateAll();
        }
         else
             {
-                removeList(array, "one");
+                removeList(array, "diepisland");
                 updateAll();
 }    
     });
@@ -192,22 +168,9 @@ $.each(array, function(key, value) {
 3
 </div>
 
-<ul class="tab">
-  <li><a href="#" class="tablinks" onclick="openTab(event, 'DiepIsland')">Diep Island</a></li>
-  <li><a href="#" class="tablinks" onclick="openTab(event, 'Interviews')">Interviews</a></li>
-  <li><a href="#" class="tablinks" onclick="openTab(event, 'Motherships')">Motherships</a></li>
-  <li><a href="#" class="tablinks" onclick="openTab(event, 'SunKnights')">Sun Knights</a></li>
-  <li><a href="#" class="tablinks" onclick="openTab(event, 'Basic')">Basic Tanks</a></li>
-  <li><a href="#" class="tablinks" onclick="openTab(event, 'Misc')">Miscellaneous</a></li>
-</ul>
-
-<div id="DiepIsland" class="tabcontent">
-    <p>Diep Island is the story about a tank who found himself on an island.</p>
-  
-    <a title="Diep Island" class="fancybox" rel="group" href="https://iap-reloaded.github.io/Tank-Guide/images/Diep%20Island.png"><img width=125 height=125 src="https://iap-reloaded.github.io/Tank-Guide/images/Diep%20Island.png"></a>
-    <a title="Alpha Always Wins" class="fancybox" rel="group" href="https://iap-reloaded.github.io/Tank-Guide/images/Alpha%20Always%20Wins.png"><img width=125 height=125 src="https://iap-reloaded.github.io/Tank-Guide/images/Alpha%20Always%20Wins.png"></a>
-    <a title="Edge of Diep Island" class="fancybox" rel="group" href="https://iap-reloaded.github.io/Tank-Guide/images/Edge%20of%20Diep%20Island.png"><img width=125 height=125 src="https://iap-reloaded.github.io/Tank-Guide/images/Edge%20of%20Diep%20Island.png"></a>
-</div>
+    <div class="diepisland"><a title="Diep Island" class="fancybox" rel="group" href="https://iap-reloaded.github.io/Tank-Guide/images/Diep%20Island.png"><img width=125 height=125 src="https://iap-reloaded.github.io/Tank-Guide/images/Diep%20Island.png"></a></div>
+    <div class="diepisland"><a title="Alpha Always Wins" class="fancybox" rel="group" href="https://iap-reloaded.github.io/Tank-Guide/images/Alpha%20Always%20Wins.png"><img width=125 height=125 src="https://iap-reloaded.github.io/Tank-Guide/images/Alpha%20Always%20Wins.png"></a></div>
+    <div class="diepisland"><a title="Edge of Diep Island" class="fancybox" rel="group" href="https://iap-reloaded.github.io/Tank-Guide/images/Edge%20of%20Diep%20Island.png"><img width=125 height=125 src="https://iap-reloaded.github.io/Tank-Guide/images/Edge%20of%20Diep%20Island.png"></a></div>
 
 <div id="Interviews" class="tabcontent">
     <p>The Interview with Diepkind series is where the protagonist meets other tanks and asks them questions. It was made by <a href="https://www.reddit.com/user/Disisaperson64">Disisaperson64</a>.</a></a></p>
