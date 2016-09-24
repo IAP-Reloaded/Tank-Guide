@@ -44,11 +44,59 @@
     });
   });
   // ]]>
+  
+updateAll()
+
+function removeList(array, search_term) {
+for (var i=array.length-1; i>=0; i--) {
+    if (array[i] === search_term) {
+        array.splice(i, 1);
+        // break;       //<-- Uncomment  if only the first term has to be removed
+    }
+}
+}
+var array = ["featured"];
+function updateAll() {
+//Hide all the div
+$('div').hide();
+$.each(array, function(key, value) {
+  $('div').filter(function(){
+    //Get the div which have particular class
+    if($(this).hasClass(value))
+    {
+      return $(this);
+    }
+  }).show();
+});
+}
+ $('#checkbox1').change(function() {
+ if($(this).is(':checked')){
+            array.push("diepisland")
+                updateAll();
+       }
+        else
+            {
+                removeList(array, "diepisland");
+                updateAll();
+}    
+    });
+    
+     $('#checkbox2').change(function() {
+ if($(this).is(':checked')){
+            array.push("interview")
+                updateAll();
+       }
+        else
+            {
+                removeList(array, "interview");
+                updateAll();
+}    
+    });
 </script>
 
 <p>
   <input id="checkbox1" class="all" name="zip" type="checkbox" value="all" /> Diep Island <br />
-  <input id="checkbox2" class="all" name="zip" type="checkbox" value="all" /> Two&nbsp;
+  <input id="checkbox2" class="all" name="zip" type="checkbox" value="all" /> Interviews with Diepkind&nbsp;
 </p>
 
 <div class="diepisland"><a class="fancybox" title="Diep Island" href="https://iap-reloaded.github.io/Tank-Guide/images/Diep%20Island.png" rel="group"><img src="https://iap-reloaded.github.io/Tank-Guide/images/Diep%20Island.png" alt="" width="125" height="125" /></a></div>
