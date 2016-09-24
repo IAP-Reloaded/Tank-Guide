@@ -125,6 +125,72 @@ function openTab(evt, cityName) {
 
 <a href="https://www.reddit.com/r/Diepio/comments/53cfwd/diepio_comic_archive_view_comics_in_one_place/?ref=share&ref_source=embed" onclick="trackOutboundLink('https://www.reddit.com/r/Diepio/comments/53cfwd/diepio_comic_archive_view_comics_in_one_place/?ref=share&ref_source=embed'); return false;">Diep.io Comic Archive - View comics in one place</a> on Reddit
 
+<input type="checkbox" name="zip" id="checkbox1" class="all"  value="all" /> One <br>
+<input type="checkbox" name="zip" id="checkbox2" class="all"  value="all" /> Two <br>
+
+<script>
+	updateAll()
+
+function removeList(array, search_term) {
+for (var i=array.length-1; i>=0; i--) {
+    if (array[i] === search_term) {
+        array.splice(i, 1);
+        // break;       //<-- Uncomment  if only the first term has to be removed
+    }
+}
+}
+
+var array = ["featured"];
+
+function updateAll() {
+//Hide all the div
+$('div').hide();
+$.each(array, function(key, value) {
+  $('div').filter(function(){
+    //Get the div which have particular class
+    if($(this).hasClass(value))
+    {
+      return $(this);
+    }
+  }).show();
+});
+}
+
+ $('#checkbox1').change(function() {
+ if($(this).is(':checked')){
+            array.push("one")
+                updateAll();
+       }
+        else
+            {
+                removeList(array, "one");
+                updateAll();
+}    
+    });
+    
+     $('#checkbox2').change(function() {
+ if($(this).is(':checked')){
+            array.push("two")
+                updateAll();
+       }
+        else
+            {
+                removeList(array, "two");
+                updateAll();
+}    
+    });
+</script>
+
+<div class="one">
+1
+</div>
+<div class="two">
+2
+</div>
+<div class="one two">
+3
+</div>
+
 <ul class="tab">
   <li><a href="#" class="tablinks" onclick="openTab(event, 'DiepIsland')">Diep Island</a></li>
   <li><a href="#" class="tablinks" onclick="openTab(event, 'Interviews')">Interviews</a></li>
